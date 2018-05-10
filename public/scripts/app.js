@@ -25,6 +25,12 @@ var onRemoveAll = function onRemoveAll() {
   renderApp();
 };
 
+var onMakeDecision = function onMakeDecision() {
+  var randomNum = Math.floor(Math.random() * app.options.length);
+  var option = app.options[randomNum];
+  alert(option);
+};
+
 var appRoot = document.getElementById('app');
 var renderApp = function renderApp() {
   var template = React.createElement(
@@ -51,18 +57,25 @@ var renderApp = function renderApp() {
       app.options.length
     ),
     React.createElement(
+      'button',
+      { disabled: app.options.length === 0, onClick: onMakeDecision },
+      'What should i do?'
+    ),
+    React.createElement(
+      'button',
+      { onClick: onRemoveAll },
+      'Remove All Items'
+    ),
+    React.createElement(
       'ol',
       null,
-      React.createElement(
-        'li',
-        null,
-        'Item one'
-      ),
-      React.createElement(
-        'li',
-        null,
-        'Item two'
-      )
+      app.options.map(function (option) {
+        return React.createElement(
+          'li',
+          { key: option },
+          option
+        );
+      })
     ),
     React.createElement(
       'form',
@@ -72,11 +85,6 @@ var renderApp = function renderApp() {
         'button',
         null,
         'Add Option'
-      ),
-      React.createElement(
-        'button',
-        { onClick: onRemoveAll },
-        'Remove All Items'
       )
     )
   );
