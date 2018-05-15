@@ -1,44 +1,77 @@
 'use strict';
 
-var appRoot = document.getElementById('app');
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var buttonActive = false;
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var onToggleDetails = function onToggleDetails() {
-  buttonActive = !buttonActive;
-  renderApp();
-};
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-var renderApp = function renderApp() {
-  var template = React.createElement(
-    'div',
-    null,
-    React.createElement(
-      'h1',
-      null,
-      'Visibility Toggle'
-    ),
-    buttonActive ? React.createElement(
-      'div',
-      null,
-      React.createElement(
-        'button',
-        { onClick: onToggleDetails },
-        'Hide Details'
-      ),
-      React.createElement(
-        'p',
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Header = function (_React$Component) {
+  _inherits(Header, _React$Component);
+
+  function Header() {
+    _classCallCheck(this, Header);
+
+    return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
+  }
+
+  _createClass(Header, [{
+    key: 'render',
+    value: function render() {
+      return React.createElement(
+        'div',
         null,
-        'Details'
-      )
-    ) : React.createElement(
-      'button',
-      { onClick: onToggleDetails },
-      'View Details'
-    )
-  );
+        React.createElement(
+          'h1',
+          null,
+          'Indecision'
+        ),
+        React.createElement(
+          'h2',
+          null,
+          'Put your life in the hands of a computer'
+        )
+      );
+    }
+  }]);
 
-  ReactDOM.render(template, appRoot);
-};
+  return Header;
+}(React.Component);
 
-renderApp();
+var Action = function (_React$Component2) {
+  _inherits(Action, _React$Component2);
+
+  function Action() {
+    _classCallCheck(this, Action);
+
+    return _possibleConstructorReturn(this, (Action.__proto__ || Object.getPrototypeOf(Action)).apply(this, arguments));
+  }
+
+  _createClass(Action, [{
+    key: 'render',
+    value: function render() {
+      return React.createElement(
+        'div',
+        null,
+        React.createElement(
+          'button',
+          null,
+          'What should i do?'
+        )
+      );
+    }
+  }]);
+
+  return Action;
+}(React.Component);
+
+var jsx = React.createElement(
+  'div',
+  null,
+  React.createElement(Header, null),
+  React.createElement(Action, null)
+);
+
+ReactDOM.render(jsx, document.getElementById('app'));
