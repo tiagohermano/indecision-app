@@ -9,17 +9,19 @@
     "babel-cli": "6.24.1",
     "babel-core": "6.25.0",
     "babel-loader": "7.1.1",
+    "babel-plugin-transform-class-properties": "6.24.1",
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1",
     "live-server": "^1.2.0",
     "react": "15.6.1",
     "react-dom": "15.6.1",
     "validator": "8.0.0",
-    "webpack": "3.1.0"
+    "webpack": "3.1.0",
+    "webpack-dev-server": "2.5.1"
   },
   "scripts": {
-    "build-babel": "babel src/app.js --out-file=public/app.js --presets=env,react --watch",
     "build": "webpack --watch",
-    "serve": "live-server public/"
+    "serve": "live-server public/",
+    "dev-server": "webpack-dev-server"
   }
 }
