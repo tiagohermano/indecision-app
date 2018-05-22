@@ -5,6 +5,12 @@
   padding: $m-size 0;
 }
 
+@media (max-width: $desktop-breakpoint) {
+  .header {
+    margin-bottom: $s-size;
+  }
+}
+
 .header__title {
   font-size: $l-size;
   margin: 0;
